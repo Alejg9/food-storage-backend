@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Group {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  owner User @relation("owner", fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId String @db.ObjectId
+  products Product[] @relation("group")
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  members UsersOnGroup[]
+}
+
+model Product {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  pieces Int
+  quantity Int
+  units String
+  group Group @relation("group", fields: [groupId], references: [id], onDelete: Cascade)
+  groupId String @db.ObjectId
+}
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  email String @unique
+  lastname String
+  password String
+  groupsOwned Group[] @relation("owner")
+  createdAt DateTime @default(now())
+  groupsMember UsersOnGroup[]
+}
+
+model UsersOnGroup {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  group       Group     @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  groupId String @db.ObjectId // relation scalar field (used in the `@relation` attribute above)
+  user   User @relation(fields: [userId], references: [id] , onDelete: Cascade)
+  userId String @db.ObjectId // relation scalar field (used in the `@relation` attribute above)
+  assignedAt DateTime @default(now())
+}

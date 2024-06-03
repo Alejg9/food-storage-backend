@@ -1,0 +1,8 @@
+@api = http://localhost:3000/usersAndGroups
+
+# Create a new user
+GET {{api}}/users/6652ac2c35227ff41744c698
+
+###
+
+GET {{api}}/665254de2c4f88e0edeccf32/groups

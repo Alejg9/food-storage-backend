@@ -1,0 +1,26 @@
+@api = http://localhost:3000/users
+
+# Create a new user
+POST {{api}}
+Content-Type: application/json
+
+{
+    "secret": "mysecret",
+    "name": "Alejandro",
+    "email": "aguillermo91@gmail.com",
+    "lastname": "Guillermo Gutiérrez",
+    "password": "alex360P##"
+}
+
+###
+
+POST {{api}}
+Content-Type: application/json
+
+{
+    "secret": "mysecret",
+    "name": "Rafael",
+    "email": "raguga17@gmail.com",
+    "lastname": "Guillermo Gutiérrez",
+    "password": "rafael.91"
+}

@@ -1,0 +1,45 @@
+@api = http://localhost:3000/groups
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTI1NGRlMmM0Zjg4ZTBlZGVjY2YzMiIsImVtYWlsIjoiYWd1aWxsZXJtb2c5MUBnbWFpbC5jb20iLCJpYXQiOjE3MTcxNzM0MjQsImV4cCI6MTcxNzI1OTgyNH0.Gx_oj6_zwDecnOK9KrjRp-hAHoCbk3nlfS7o7ZX8nvE
+# Create a new group
+POST {{api}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Casa amecameca 12",
+    "ownerId": "665254de2c4f88e0edeccf32",
+    "description": "Casa Alex, Fayo y Lalo"
+}
+
+###
+
+# Get all groups
+GET {{api}}
+Authorization: Bearer {{token}}
+
+###
+
+# Get a group by id
+
+GET {{api}}/6652ac2c35227ff41744c698
+
+###
+
+# Update a group
+PUT {{api}}/6652ac2c35227ff41744c698
+Content-Type: application/json
+
+{
+    "name": "Casa Alex, Fayo y Lalo",
+    "ownerId": "665254de2c4f88e0edeccf32",
+    "description": "Amecameca 1"
+}
+
+###
+
+# Delete a group
+
+DELETE {{api}}/665a1905bb850c5d480e6715
+Authorization: Bearer {{token}}
+
+

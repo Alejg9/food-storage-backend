@@ -1,0 +1,9 @@
+@api = http://localhost:3000/invite
+
+# Add a new user to the group
+POST {{api}}/raguga17@gmail.com
+Content-Type: application/json
+
+{
+  "groupId": "6652ac2c35227ff41744c698"
+}

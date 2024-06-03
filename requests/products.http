@@ -1,0 +1,44 @@
+@api = http://localhost:3000/products
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTI1NGRlMmM0Zjg4ZTBlZGVjY2YzMiIsImVtYWlsIjoiYWd1aWxsZXJtb2c5MUBnbWFpbC5jb20iLCJpYXQiOjE3MTcxNzM0MjQsImV4cCI6MTcxNzI1OTgyNH0.Gx_oj6_zwDecnOK9KrjRp-hAHoCbk3nlfS7o7ZX8nvE
+
+# Create a new product
+POST {{api}}/6652ac2c35227ff41744c698
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Frijol",
+    "pieces": 2,
+    "quantity": 0.5,
+    "units": "kilos"
+}
+
+###
+
+# Get all products
+GET {{api}}/66529f46acefa158bf46fda4
+
+###
+
+# Get a product by id
+
+GET {{api}}/66529f46acefa158bf46fda4/6652a78ce2c5230209e50a63
+
+###
+
+# Update a product
+PUT {{api}}/66529f46acefa158bf46fda4/6652a78ce2c5230209e50a63
+Content-Type: application/json
+
+{
+    "name": "Frijol",
+    "pieces": 5,
+    "quantity": 1,
+    "units": "kilos"
+}
+
+###
+
+# Delete a product
+
+DELETE {{api}}/66529f46acefa158bf46fda4/6652a770e2c5230209e50a62

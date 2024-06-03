@@ -1,0 +1,11 @@
+@api = http://localhost:3000/signIn
+
+# Create a new user
+POST {{api}}
+Content-Type: application/json
+
+{
+    "secret": "mysecret",
+    "email": "aguillermog91@gmail.com",
+    "password": "alex360P##"
+}
