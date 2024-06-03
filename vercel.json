@@ -1,0 +1,12 @@
+{
+    "builds": [
+        {
+            "src": "src/index.ts",
+            "use": "@now/node-server",
+            "config": { "zeroConfig": true }
+        }
+    ],
+    "routes": [
+        { "src": "/(.*)", "dest": "src/index.js" }
+    ]
+}
